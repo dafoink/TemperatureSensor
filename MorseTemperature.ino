@@ -8,7 +8,7 @@ double tempF;
 
 int LedPin = 9;
 
-#define SLEEP_LOOPS 15
+#define SLEEP_LOOPS 15  // number of loops for 8 second sleeps:  loops = (minutes * 60) / 8  (37 loops is about 5 minutes)
 
 // Dallas Temperature
 #define ONE_WIRE_BUS 2
@@ -22,8 +22,6 @@ void setup() {
 
   pinMode(LedPin, OUTPUT);
 
-  pinMode(LED_BUILTIN,OUTPUT);
-  digitalWrite(LED_BUILTIN,LOW);
   setupTempSensors();						// setup 1-wire temperature sensors
 
 }
