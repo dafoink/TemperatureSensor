@@ -1,11 +1,14 @@
 #include <Wire.h>
 #include <DallasTemperature.h>
 #include <string.h>
+#include <LowPower.h>
 
 double tempF;
 //double tempC;
 
 int LedPin = 9;
+
+#define SLEEP_LOOPS 15
 
 // Dallas Temperature
 #define ONE_WIRE_BUS 2
@@ -18,14 +21,23 @@ void setup() {
 	Serial.println("starting");
 
   pinMode(LedPin, OUTPUT);
+
+  pinMode(LED_BUILTIN,OUTPUT);
+  digitalWrite(LED_BUILTIN,LOW);
   setupTempSensors();						// setup 1-wire temperature sensors
 
 }
 
 void loop() {
   getTemperature();
-  doMorse();
-  delay(3000); // TODO:  Put to sleep for 5 minutes
+  for(int c=0;c<3;c++)
+  {
+    doMorse();
+    delay(3000);
+  }
+  
+  doSleep();
+  Serial.println("Arduino:- Woke up to do work");
 }
 
 void doMorse()
@@ -68,4 +80,12 @@ void getTemperature()
 void setupTempSensors()
 {
 	tempSensors.begin();
+}
+
+void doSleep()
+{
+  for (int i=0; i <SLEEP_LOOPS; i++)  
+  {
+    LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF); 
+  }
 }
