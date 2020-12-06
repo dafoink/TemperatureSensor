@@ -3,16 +3,24 @@
         {
             "name": "Win32",
             "includePath": [
-                "e:\\Users\\bwharton\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp",
-                "C:\\Users\\bwharton\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\**",
-                "C:\\Users\\bwharton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.2\\**"
+                "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp",
+                "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\OneWire",
+                "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp",
+                "e:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
+                "e:\\Program Files (x86)\\Arduino\\tools\\**",
+                "e:\\Program Files (x86)\\Arduino\\hardware\\tools\\**",
+                "e:\\Program Files (x86)\\Arduino\\libraries\\**",
+                "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\**"
             ],
             "forcedInclude": [
-                "C:\\Users\\bwharton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.2\\cores\\arduino\\Arduino.h"
+                "e:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
             ],
             "intelliSenseMode": "msvc-x64",
             "cStandard": "c17",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "defines": [
+                "USBCON"
+            ]
         }
     ],
     "version": 4

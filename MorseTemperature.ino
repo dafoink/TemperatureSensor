@@ -1,39 +1,41 @@
-#include <Wire.h>
 #include <DallasTemperature.h>
 #include <string.h>
-#include <LowPower.h>
+#include "LowPower.h"
 
 double tempF;
 //double tempC;
 
 int LedPin = 9;
 
-#define SLEEP_LOOPS 15  // number of loops for 8 second sleeps:  loops = (minutes * 60) / 8  (37 loops is about 5 minutes)
+#define SLEEP_LOOPS 15 // number of loops for 8 second sleeps:  loops = (minutes * 60) / 8  (37 loops is about 5 minutes)
 
 // Dallas Temperature
 #define ONE_WIRE_BUS 2
-OneWire oneWire(ONE_WIRE_BUS);				// Setup a oneWire instance to communicate with any OneWire device
-DallasTemperature tempSensors(&oneWire);	// Pass oneWire reference to DallasTemperature library
+OneWire oneWire(ONE_WIRE_BUS);           // Setup a oneWire instance to communicate with any OneWire device
+DallasTemperature tempSensors(&oneWire); // Pass oneWire reference to DallasTemperature library
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
-	delay(3000);
-	Serial.println("starting");
+  delay(3000);
+  Serial.println("starting");
 
   pinMode(LedPin, OUTPUT);
 
-  setupTempSensors();						// setup 1-wire temperature sensors
-
+  setupTempSensors(); // setup 1-wire temperature sensors
 }
 
-void loop() {
+void loop()
+{
   getTemperature();
-  for(int c=0;c<3;c++)
+  for (int c = 0; c < 3; c++)
   {
+    // hardcode tempF if you dont have a dallas temp sensor to simulate what you want
+    //tempF = 40;
     doMorse();
     delay(3000);
   }
-  
+
   doSleep();
   Serial.println("Arduino:- Woke up to do work");
 }
@@ -45,20 +47,34 @@ void doMorse()
   Serial.print("Temperature is: ");
   Serial.println(tempString);
 
-  for(int i = 0;i<tempString.length();i++){
+  for (int i = 0; i < tempString.length(); i++)
+  {
     Serial.print("Processing Character#: ");
     Serial.println(i);
     int c = (int)(tempString[i] - 48);
-    for(int x = 0;x<c;x++)
+    Serial.print("Character: ");
+    Serial.println(c);
+    if (c == 0)
     {
       delay(500);
-      Serial.print("Dit ");
+      Serial.print("Da ");
       digitalWrite(LedPin, HIGH);
-      delay(200);
+      delay(400);
       digitalWrite(LedPin, LOW);
     }
+    else
+    {
+      for (int x = 0; x < c; x++)
+      {
+        delay(500);
+        Serial.print("Dit ");
+        digitalWrite(LedPin, HIGH);
+        delay(200);
+        digitalWrite(LedPin, LOW);
+      }
+    }
     Serial.println("");
-    if(i < tempString.length() -1)  // if it is not the last number in the string?
+    if (i < tempString.length() - 1) // if it is not the last number in the string?
     {
       delay(1000);
     }
@@ -69,21 +85,21 @@ void doMorse()
 void getTemperature()
 {
 
-	tempSensors.requestTemperatures();
-	//tempC = (tempSensors.getTempCByIndex(0));
-	tempF = (tempSensors.getTempCByIndex(0) * 9.0) / 5.0 + 32.0;
+  tempSensors.requestTemperatures();
+  //tempC = (tempSensors.getTempCByIndex(0));
+  tempF = (tempSensors.getTempCByIndex(0) * 9.0) / 5.0 + 32.0;
 }
 
 // setup temperature sensor
 void setupTempSensors()
 {
-	tempSensors.begin();
+  tempSensors.begin();
 }
 
 void doSleep()
 {
-  for (int i=0; i <SLEEP_LOOPS; i++)  
+  for (int i = 0; i < SLEEP_LOOPS; i++)
   {
-    LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF); 
+    LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
   }
 }
