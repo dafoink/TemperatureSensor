@@ -62,16 +62,29 @@ void doMorse()
     Serial.print("Processing Character#: ");
     Serial.println(i);
     int c = (int)(tempString[i] - 48);
-    for(int x = 0;x<c;x++)
+    if(c == 0)
     {
+      // it's a daa
       delay(500);
-      Serial.print("Dit ");
+      Serial.print("Daa ");
       digitalWrite(LedPin, HIGH);
-      digitalWrite(RELAY_PIN1, LOW);
-      
-      delay(200);
+      delay(400);
       digitalWrite(LedPin, LOW);
-      digitalWrite(RELAY_PIN1, HIGH);
+      // do your relay stuff for a 0
+    }
+    else
+    {
+      for(int x = 0;x<c;x++)
+      {
+        delay(500);
+        Serial.print("Dit ");
+        digitalWrite(LedPin, HIGH);
+        digitalWrite(RELAY_PIN1, LOW);
+
+        delay(200);
+        digitalWrite(LedPin, LOW);
+        digitalWrite(RELAY_PIN1, HIGH);
+      }
     }
     Serial.println("");
     if(i < tempString.length() -1)  // if it is not the last number in the string?
