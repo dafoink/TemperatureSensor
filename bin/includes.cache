@@ -1,0 +1,47 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "E:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "E:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\eightanaloginputs"
+  },
+  {
+    "Sourcefile": "e:\\Source\\Brians Playground\\Microcontrollers\\arduino\\MorseTemperature\\bin\\sketch\\MorseTemperature.ino.cpp",
+    "Include": "DallasTemperature.h",
+    "Includepath": "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp"
+  },
+  {
+    "Sourcefile": "e:\\Source\\Brians Playground\\Microcontrollers\\arduino\\MorseTemperature\\bin\\sketch\\MorseTemperature.ino.cpp",
+    "Include": "OneWire.h",
+    "Includepath": "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\OneWire"
+  },
+  {
+    "Sourcefile": "e:\\Source\\Brians Playground\\Microcontrollers\\arduino\\MorseTemperature\\bin\\sketch\\MorseTemperature.ino.cpp",
+    "Include": "LowPower.h",
+    "Includepath": "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\Low-Power"
+  },
+  {
+    "Sourcefile": "e:\\Source\\Brians Playground\\Microcontrollers\\arduino\\MorseTemperature\\bin\\sketch\\MorseTemperature.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp\\DallasTemperature.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\OneWire\\OneWire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\Low-Power\\LowPower.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

@@ -2,5 +2,6 @@
     "sketch": "MorseTemperature.ino",
     "board": "arduino:avr:pro",
     "configuration": "cpu=16MHzatmega328",
-    "port": "COM3"
+    "port": "COM3",
+    "output": "./bin"
 }
