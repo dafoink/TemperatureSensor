@@ -3,6 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
+                "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\Low-Power",
                 "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp",
                 "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\OneWire",
                 "E:\\OneDrive\\OneDrive\\Documents\\Arduino\\libraries\\MAX31850_DallasTemp",
